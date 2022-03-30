@@ -11,7 +11,7 @@
   "scripts": {
     "build": "rollup -c",
     "commit": "cz",
-    "ch": "cz changelog",
+    "release": "standard-version",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -37,6 +37,7 @@
     "react-dom": "^16.14.0",
     "rollup": "^2.70.1",
     "rollup-plugin-typescript2": "^0.31.2",
+    "standard-version": "^9.3.2",
     "typescript": "^4.6.3",
     "webpack": "^5.70.0"
   },

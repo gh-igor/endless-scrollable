@@ -12,7 +12,7 @@ interface IItemProps {
 export interface IItem extends IItemProps, IItemScrollable {
 }
 
-interface IEndlessScrollable {
+export interface IEndlessScrollable {
     className?: string;
     item: ComponentType<IItem>;
     itemProps?: IItemProps;

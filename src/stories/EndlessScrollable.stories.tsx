@@ -1,6 +1,6 @@
 import React from "react";
-import EndlessScrollable from "../index";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import EndlessScrollable from "../index";
 
 export default {
     title: "EndlessScrollable",
@@ -18,7 +18,21 @@ export default {
         intersectionOptions: {
             control: { type: "object" }
         }
-    }
+    },
+    decorators: [
+        (Story) => (
+            <ul
+                style={{
+                    height: "400px",
+                    border: "3px solid blue",
+                    padding: "2px",
+                    listStyle: "none",
+                    overflowY: "scroll",
+                }}>
+                <Story />
+            </ul>
+        )
+    ]
 } as ComponentMeta<typeof EndlessScrollable>;
 
 const SingleItem = () => (
@@ -27,45 +41,27 @@ const SingleItem = () => (
     </li>
 );
 
-export const SimpleStoryWithSingleItem: ComponentStory<typeof EndlessScrollable> = () => {
-    return (
-        <ul
-            style={{
-                height: "400px",
-                border: "3px solid blue",
-                padding: "2px",
-                listStyle: "none",
-                overflowY: "scroll",
-            }}>
-            Item fits container. It seems nothing to load any more
-            <EndlessScrollable item={SingleItem} />
-        </ul>
-    )
-}
+export const SimpleStoryWithSingleItem: ComponentStory<typeof EndlessScrollable> = () => (
+    <>
+        Item fits container (ul). It seems no use loading any more
+        <EndlessScrollable item={SingleItem} />
+    </>
+)
 
 SimpleStoryWithSingleItem.storyName = "SimpleStoryWithSingleItem";
 
 const Item = () => (
-    <li style={{ height: "400px", border: "2px solid green", marginBottom: "5px" }}>
+    <li style={{ height: "500px", border: "2px solid green", marginBottom: "5px" }}>
         New Item
     </li>
 );
 
-export const SimpleStory: ComponentStory<typeof EndlessScrollable> = () => {
-    return (
-        <ul
-            style={{
-                height: "300px",
-                border: "3px solid blue",
-                padding: "2px",
-                listStyle: "none",
-                overflowY: "scroll",
-        }}>
-            Item doesn't fit container (300 &lt; 400), probably there will be one more to load
-            <EndlessScrollable item={Item} />
-        </ul>
-    )
-}
+export const SimpleStory: ComponentStory<typeof EndlessScrollable> = () => (
+    <>
+        Item doesn't fit container (400 &lt; 500), probably there will be one more to load
+        <EndlessScrollable item={Item} />
+    </>
+)
 
 SimpleStory.storyName = "SimpleStory";
 
@@ -82,23 +78,17 @@ const PackageItem = () => (
         <li style={{ height: "100px", border: "2px solid green", marginBottom: "5px" }}>
             Item #3
         </li>
+        <li style={{ height: "100px", border: "2px solid green", marginBottom: "5px" }}>
+            Item #4
+        </li>
     </div>
 );
 
-export const PackageStory: ComponentStory<typeof EndlessScrollable> = () => {
-    return (
-        <ul
-            style={{
-                height: "300px",
-                border: "3px solid blue",
-                padding: "2px",
-                listStyle: "none",
-                overflowY: "scroll",
-            }}>
-            Several items united in package
-            <EndlessScrollable item={PackageItem} />
-        </ul>
-    )
-}
+export const PackageStory: ComponentStory<typeof EndlessScrollable> = () => (
+    <>
+        Several items united in package. And package doesn't fit container (ul)
+        <EndlessScrollable item={PackageItem} />
+    </>
+)
 
 PackageStory.storyName = "PackageStory";

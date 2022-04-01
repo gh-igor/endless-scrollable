@@ -8,6 +8,7 @@
     "dist"
   ],
   "license": "MIT",
+  "keywords": ["react", "typescript", "infinite", "endless", "scroll", "scrollable"],
   "scripts": {
     "build": "rollup -c",
     "commit": "cz",

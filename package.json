@@ -1,6 +1,6 @@
 {
   "name": "endless-scrollable",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Igor Yashchenko",
   "main": "dist/index.js",
   "types": "./dist",
@@ -8,7 +8,14 @@
     "dist"
   ],
   "license": "MIT",
-  "keywords": ["react", "typescript", "infinite", "endless", "scroll", "scrollable"],
+  "keywords": [
+    "react",
+    "typescript",
+    "infinite",
+    "endless",
+    "scroll",
+    "scrollable"
+  ],
   "scripts": {
     "build": "rollup -c",
     "commit": "cz",

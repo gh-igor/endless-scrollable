@@ -1,11 +1,8 @@
 const path = require('path');
-// fixme: doesn't work properly
+
 module.exports = {
   entry: './src/index.tsx',
   mode: 'production',
-  optimization: {
-    minimize: false,
-  },
   module: {
     rules: [
       {
@@ -22,7 +19,13 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     library: {
-      type: 'commonjs-module'
+      type: 'commonjs-module',
+      name: 'endless-scrollable',
     }
   },
+  target: 'node',
+  externals: {
+    react: 'react',
+    'react-intersection-observer': 'react-intersection-observer',
+  }
 };

@@ -1,8 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { IItem } from "../../index";
 
+type Item = {
+    value: string;
+};
+
 const Item = ({ itemsToFetch, page, setPage, setScrollDisabled }: IItem) => {
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState<Item[]>([]);
 
     const currentPage = useMemo(() => page, []);
 
